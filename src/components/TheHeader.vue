@@ -1,3 +1,20 @@
+<script setup>
+import { ref, onMounted } from "vue";
+
+const stars = ref();
+const ufo = ref();
+const text = ref();
+
+onMounted(() => {
+  window.addEventListener("scroll", function () {
+    let val = window.scrollY;
+    stars.value.style.right = val * 0.25 + "px";
+    ufo.value.style.top = val * -0.3 + "px";
+    text.value.style.top = val * -0.7 + "px";
+  });
+});
+</script>
+
 <template>
   <nav class="z-50 relative fixed mt-6 px-24">
     <div class="flex items-center">
@@ -12,12 +29,19 @@
       </ul>
     </div>
   </nav>
-  <!-- <div class="layer"></div>
-  <div class="m-auto text-6xl">
-    <h1>ANGKASA</h1>
-  </div> -->
-  <div class="paralax">
-    <img src="@/assets/stars.png" alt="" />
+
+  <div class="paralax relative flex z-40">
+    <img
+      class="absolute right-0 object-cover bg-repeat overflow-hidden"
+      src="@/assets/stars.png"
+      alt=""
+      ref="stars"
+    />
+    <img class="absolute w-80 mt-120px left-[40%]" src="@/assets/ufo.png" alt="" ref="ufo" />
+    <div class="text-6xl absolute left-[40%] mt-380px" ref="text">
+      <h1>ANGKASA</h1>
+    </div>
+    <img src="@/assets/jumbotron.png" alt="" class="z-1000 absolute mb-28" />
   </div>
 </template>
 

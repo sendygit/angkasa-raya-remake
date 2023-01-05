@@ -7,7 +7,7 @@ import TheHeader from "@/components/TheHeader.vue";
     <TheHeader />
   </header>
   <main id="articles" class="px-20">
-    <router-view />
+    <!-- <router-view /> -->
   </main>
   <footer></footer>
 </template>
@@ -19,6 +19,7 @@ html {
 body {
   background-color: black;
   color: white;
+  overflow-x: hidden;
 }
 /* 
 header {
